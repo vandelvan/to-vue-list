@@ -1,23 +1,41 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from "./components/HelloWorld.vue";
+<script>
+// Components
+import Welcome from "./components/Welcome.vue";
 import Todo from "./components/Todo.vue";
+export default {
+  components: {
+    Welcome,
+    Todo,
+  },
+  data() {
+    return {
+      createdby: "vandelvan",
+    };
+  },
+};
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="To Vue List" />
-  <Todo/>
+  <!-- Components -->
+  <!-- Props & Emits -->
+  <Welcome @response="(msg) => (createdby = msg)" msg="Welcome!" />
+  <Todo />
+  <br />
+  <hr />
+  <!-- Emits -->
+  <a href="http://vandelvan.github.io/" target="_blank">{{ createdby }}</a>
 </template>
 
 <style>
+body {
+  background-color: #1a1a1a;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-top: 60px;
 }
 </style>
